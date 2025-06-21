@@ -1,0 +1,7 @@
+[
+    { "name": "Delhi", "country": "IN", "lat": 28.66, "lon": 77.23 },
+    { "name": "London", "country": "GB", "lat": 51.5072, "lon": -0.1276 },
+    { "name": "New York", "country": "US", "lat": 40.7128, "lon": -74.006 },
+    { "name": "Tokyo", "country": "JP", "lat": 35.6895, "lon": 139.6917 }
+  ]
+  

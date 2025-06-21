@@ -1,11 +1,33 @@
-import React from "react";
-import styles from "../styles/Home.module.css";
+import { useTheme } from '../context/themeContext';
 
-const NavBar = () => {
-    return (
-        <nav className="{styles.navbar}">
-            <h2 className="{styles.logo}">🌤️ Weather App</h2>
-            </nav>
-    );
+const Navbar = () => {
+  const { darkMode, toggleTheme } = useTheme();
+
+  return (
+    <nav style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '1rem 2rem',
+      backgroundColor: darkMode ? '#1f1f1f' : '#1e90ff',
+      color: 'white'
+    }}>
+      <span>🌤️ Weather Now</span>
+      <button
+        onClick={toggleTheme}
+        style={{
+          background: 'transparent',
+          border: '1px solid white',
+          color: 'white',
+          padding: '5px 12px',
+          borderRadius: '6px',
+          cursor: 'pointer'
+        }}
+      >
+        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      </button>
+    </nav>
+  );
 };
-export default NavBar;
+
+export default Navbar;
