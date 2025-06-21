@@ -1,44 +1,24 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Search from "./components/Search";
-import List from "./components/List";
-import styles from "./styles/Home.module.css";
-import WeatherDetails from "./pages/WeatherDetails";
-import background from "./assets/background.jpg"; // Ensure this file exists
+import React from 'react';
+import Navbar from './components/Navbar';
+import Search from './components/Search';
+import WeatherSection from './components/WeatherSection';
+import ForecastChart from './components/foreCastChart';
 
 const App = () => {
-  const cities = [
-    { name: "New York", temp: 20 },
-    { name: "London", temp: 15 },
-    { name: "Mumbai", temp: 30 },
-    { name: "Tokyo", temp: 25 },
-    { name: "Sydney", temp: 22 },
-  ];
   return (
-    <Router>
-    <div
-      className={styles.home}
-      style={{ backgroundImage: `url(${background})` }}
-    >
+    <div className="app-container">
       <Navbar />
-      <div className={styles.content}>
-      <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <h1 className={styles.title}>Welcome to Weather App</h1>
-                  <Search />
-                  <List cities={cities} />
-                </>
-              }
-            />
-            <Route path="/weather/:cityName" element={<WeatherDetails/>} />
-          </Routes>
+      <Search />
+
+      <div className="split-screen">
+        <div className="left-panel">
+          <ForecastChart />
+        </div>
+        <div className="right-panel">
+          <WeatherSection />
         </div>
       </div>
-    </Router>
+    </div>
   );
 };
 
